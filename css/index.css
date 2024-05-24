@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Levitation';
+    src: url(../assets/fonts/Levitation-7BnPB.ttf);
+}
+
+:root {
+    --background-color: #0c0c0c;
+    --main-color: #fcde9b;
+
+    --levitation-font: 'Levitation', sans-serif;
+    --incosola-font: 'Inconsolata', monospace;
+}
+
+body {
+    background-color: var(--background-color);
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    animation: fadeIn 500ms ease-in;
+    background-image: url(../assets/background.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.main-title {
+    font-family: var(--levitation-font);
+    font-size: 4.5rem;
+    color: white;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 10px;
+    text-shadow: 0 0 10px black;
+}
+
+.main-title h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.main-title h1 span {
+    color: var(--main-color);
+}
+
+.random-rotate p {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
