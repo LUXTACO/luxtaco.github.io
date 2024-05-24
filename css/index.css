@@ -8,7 +8,8 @@
     --main-color: #fcde9b;
 
     --levitation-font: 'Levitation', sans-serif;
-    --incosola-font: 'Inconsolata', monospace;
+    --inconsola-font: 'Inconsolata', monospace;
+    --comfortaa-font: 'Comfortaa', cursive;
 }
 
 body {
@@ -28,7 +29,9 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 0;
     align-items: center;
     box-sizing: border-box;
 }
@@ -39,22 +42,58 @@ body {
     color: white;
     text-align: center;
     margin: 0;
+    height: 270px;
     letter-spacing: 10px;
     text-shadow: 0 0 10px black;
     transition: all 0.3s ease;
     animation: popInAndMoveTop 550ms ease-in;
 }
 
-.main-title h1 {
+.main-title p {
     margin: 0;
     padding: 0;
 }
 
-.main-title h1 span {
+.main-title p span {
     color: var(--main-color);
 }
 
 .random-rotate p {
     display: inline-block;
     transition: transform 0.3s ease;
+}
+
+.quote {
+    font-family: var(--levitation-font);
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 5px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.quote h1 {
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    text-shadow: 0 0 10px black;
+}
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        padding: 0 10px;
+        justify-content: start;
+    }
+
+    .main-title {
+        font-size: 1.7rem;
+        height: 120px;
+    }
+
+    .quote {
+        font-size: 12px;
+    }
 }
