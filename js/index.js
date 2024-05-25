@@ -1,19 +1,25 @@
 const programmingQuotes = [
-    "The best way to predict the future is to invent it.",
-    "Debugging: Removing the needles from the haystack.",
-    "I'm not a programmer, I'm a code artist.",
-    "The only way to learn a new programming language is to write a compiler for it.",
-    "Software is like sex: It's better when it's free.",
+    "Debugging is the art of finding the needle.",
+    "My code: full of errors, but I'm learning.",
+    "Bad code: so bad, it's good. Like a bad movie.",
+    "Coding: Explaining jokes to a brick wall.",
+    "Best code: unwritten, well-documented.",
     "The only true wisdom is in knowing you know nothing.",
-    "The best code is no code at all.",
-    "Code is poetry.",
-    "The best way to learn is to do.",
-    "Don't fear failure, fear not trying.",
-    "A good programmer is someone who always looks both ways before crossing a one-way street.",
-    "There are two ways to write error-free programs; only the third works.",
-    "The computer is a tool, but it's a tool with a mind of its own.",
-    "Software is never finished, it's just abandoned.",
-    "If debugging is the process of removing software bugs, then programming must be the process of putting them in."
+    "Debugging: Forgot to save? What's more embarrassing?",
+    "My code: rusty, but gets me there...",
+    "Nighttime debugging: Can't resist the urge.",
+    "Learning new languages: Write a compiler.",
+    "Version 1.0: 'It kinda works'.",
+    "Code errors: Coffee-related, switch to tea?",
+    "Coding: Changing puzzle pieces, unknown picture.",
+    "Debugging: Finding what you meant to write.",
+    "My code: strange noises, but it's home."
+];
+
+const titleNames = [
+    "Takkeshi", 
+    "LUXTACO",
+    "Takkeshi_Dev"
 ];
 
 function letter_rotation() 
@@ -87,7 +93,36 @@ function quote_render()
     });
 }
 
+function title_render() {
+    const title = 'TAKKESHI.DEV';
+    let index = 0;
+
+    const loadingAnimation = () => {
+        return new Promise((resolve) => {
+            const intervalId = setInterval(() => {
+                if (index < title.length) {
+                    document.title = title.slice(0, index + 1) + '|';
+                    index++;
+                } else {
+                    clearInterval(intervalId);
+                    resolve();
+                }
+            }, 100);
+        });
+    };
+
+    loadingAnimation().then(() => {
+        setTimeout(title_render, 1000);
+    });
+}
+
+function show_discord_user() {
+    const discordUser = ".takkeshi"
+    alert("Discord User: " + discordUser);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     letter_rotation()
     quote_render()
+    title_render()
 });

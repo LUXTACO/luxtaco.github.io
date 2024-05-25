@@ -78,8 +78,41 @@ body {
 .quote h1 {
     margin: 0;
     padding: 0;
-    height: 20px;
+    min-height: 40px;
     text-shadow: 0 0 10px black;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.socials a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 0 0 10px black;
+    margin: 10px 10px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.socials svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px black);
+}
+
+.socials a:hover {
+    color: var(--main-color);
+    scale: 1.1;
+}
+
+.socials svg:hover {
+    fill: var(--main-color);
 }
 
 @media screen and (max-width: 768px) {
