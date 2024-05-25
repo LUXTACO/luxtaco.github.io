@@ -7,7 +7,7 @@ const programmingQuotes = [
     "The only true wisdom is in knowing you know nothing.",
     "Debugging is like an onion, it has layers.",
     "Code is like a joke, if you have to explain it, it's bad.",
-    "Nighttime debugging: Can't resist the urge.",
+    "Nightime debugging: The best ideas come at 3am.",
     "Learning new languages: Write a compiler.",
     "Version 1.0: 'It kinda works'.",
     "Code errors are like a puzzle, but you're the puzzle.",
