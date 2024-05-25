@@ -13,7 +13,7 @@ const programmingQuotes = [
     "Code errors are like a puzzle, but you're the puzzle.",
     "Coding: The art of making the impossible possible.",
     "Debugging is finding out what you meant to write.",
-    "My code is like a fine wine, its an adquired taste.",
+    "My code is like a fine wine, it has an adquired taste.",
 ];
 
 function letter_rotation() 
