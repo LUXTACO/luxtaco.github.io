@@ -1,19 +1,46 @@
 @keyframes fadeIn {
-  0% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
-@keyframes popInAndMoveTop {
-  0% {
-      opacity: 0;
-      transform: translateY(50px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
+@keyframes popIn {
+	0% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1.1);
+
+	}
+	100% {
+		transform: scale(1);
+	}
 }
+
+@keyframes rubberBand {
+	0% {
+		transform: scale(1);
+	}
+	30% {
+		transform: scaleX(1.25) scaleY(0.75);
+	}
+	40% {
+		transform: scaleX(0.75) scaleY(1.25);
+	}
+	50% {
+		transform: scaleX(1.15) scaleY(0.85);
+	}
+	65% {
+		transform: scaleX(.95) scaleY(1.05);
+	}
+	75% {
+		transform: scaleX(1.05) scaleY(.95);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+

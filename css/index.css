@@ -23,9 +23,9 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-  }
+}
   
-  body::before {
+body::before {
     content: "";
     position: fixed;
     top: 0;
@@ -38,7 +38,7 @@ body {
     background-position: center;
     object-fit: cover;
     z-index: -1;
-  }
+}
 
 .main-content {
     width: 100%;
@@ -61,7 +61,8 @@ body {
     letter-spacing: 10px;
     text-shadow: 0 0 10px black;
     transition: all 0.3s ease;
-    animation: popInAndMoveTop 550ms ease-in;
+    animation: popIn 300ms ease-in, rubberBand 700ms ease-in-out;
+    animation-delay: 0s, 300ms;
 }
 
 .main-title p {
