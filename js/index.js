@@ -43,6 +43,21 @@ function letter_rotation()
     });
 }
 
+function resizeBackground() {
+    const body = document.body;
+    const bg = new Image();
+    bg.src = body.style.backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
+    bg.onload = function() {
+      const bgAspectRatio = bg.width / bg.height;
+      const screenAspectRatio = window.innerWidth / window.innerHeight;
+      if (bgAspectRatio > screenAspectRatio) {
+        body.style.backgroundSize = 'auto 100%';
+      } else {
+        body.style.backgroundSize = '100% auto';
+      }
+    };
+  }
+
 function quote_render()
 {
     let randomQuote = programmingQuotes[Math.floor(Math.random() * programmingQuotes.length)];
@@ -138,4 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
     letter_rotation()
     quote_render()
     title_render()
+    resizeBackground();
+    window.addEventListener('resize', resizeBackground);
 });
