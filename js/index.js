@@ -1,25 +1,19 @@
 const programmingQuotes = [
     "Debugging is the art of finding the needle.",
-    "My code: full of errors, but I'm learning.",
-    "Bad code: so bad, it's good. Like a bad movie.",
-    "Coding: Explaining jokes to a brick wall.",
-    "Best code: unwritten, well-documented.",
+    "My code is perfect... In its own way.",
+    "Bad code, so bad, it's good. Like a bad movie.",
+    "Coding is like baking a cake, but you can't eat it.",
+    "Best code is no code at all. But that's boring.",
     "The only true wisdom is in knowing you know nothing.",
-    "Debugging: Forgot to save? What's more embarrassing?",
-    "My code: rusty, but gets me there...",
+    "Debugging is like an onion, it has layers.",
+    "Code is like a joke, if you have to explain it, it's bad.",
     "Nighttime debugging: Can't resist the urge.",
     "Learning new languages: Write a compiler.",
     "Version 1.0: 'It kinda works'.",
-    "Code errors: Coffee-related, switch to tea?",
-    "Coding: Changing puzzle pieces, unknown picture.",
-    "Debugging: Finding what you meant to write.",
-    "My code: strange noises, but it's home."
-];
-
-const titleNames = [
-    "Takkeshi", 
-    "LUXTACO",
-    "Takkeshi_Dev"
+    "Code errors are like a puzzle, but you're the puzzle.",
+    "Coding: The art of making the impossible possible.",
+    "Debugging is finding out what you meant to write.",
+    "My code is like a fine wine, its an adquired taste.",
 ];
 
 function letter_rotation() 
@@ -111,8 +105,27 @@ function title_render() {
         });
     };
 
+    const deletingAnimation = () => {
+        return new Promise((resolve) => {
+            const intervalId = setInterval(() => {
+                if (index >= 0) {
+                    document.title = title.slice(0, index) + '|';
+                    index--;
+                } else {
+                    clearInterval(intervalId);
+                    resolve();
+                }
+            }, 100);
+        });
+    };
+
     loadingAnimation().then(() => {
-        setTimeout(title_render, 1000);
+        setTimeout(() => {
+            index--; // set index to the last character
+            deletingAnimation().then(() => {
+                setTimeout(title_render, 1000);
+            });
+        }, 1000);
     });
 }
 
