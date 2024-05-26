@@ -43,20 +43,20 @@ function letter_rotation()
     });
 }
 
-function resizeBackground() {
+function resize_background() {
     const body = document.body;
     const bg = new Image();
     bg.src = body.style.backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
     bg.onload = function() {
-      const bgAspectRatio = bg.width / bg.height;
-      const screenAspectRatio = window.innerWidth / window.innerHeight;
-      if (bgAspectRatio > screenAspectRatio) {
+        const bgAspectRatio = bg.width / bg.height;
+        const screenAspectRatio = window.innerWidth / window.innerHeight;
+        if (bgAspectRatio > screenAspectRatio) {
         body.style.backgroundSize = 'auto 100%';
-      } else {
+        } else {
         body.style.backgroundSize = '100% auto';
-      }
+        }
     };
-  }
+}
 
 function quote_render()
 {
@@ -136,7 +136,7 @@ function title_render() {
 
     loadingAnimation().then(() => {
         setTimeout(() => {
-            index--; // set index to the last character
+            index--;
             deletingAnimation().then(() => {
                 setTimeout(title_render, 1000);
             });
@@ -144,15 +144,10 @@ function title_render() {
     });
 }
 
-function show_discord_user() {
-    const discordUser = ".takkeshi"
-    alert("Discord User: " + discordUser);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     letter_rotation()
     quote_render()
     title_render()
-    resizeBackground();
+    resize_background();
     window.addEventListener('resize', resizeBackground);
 });

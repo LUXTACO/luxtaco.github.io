@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'Levitation';
+    src: url(../assets/fonts/Levitation-7BnPB.ttf);
+}
+
+:root {
+    --background-color: #0c0c0c;
+    --main-color: #fcde9b;
+
+    --profile-border: linear-gradient(rgb(137, 110, 61), rgb(255, 220, 138));
+    --profile-background: rgba(0, 0, 0, 0.64);
+
+    --levitation-font: 'Levitation', sans-serif;
+    --inconsola-font: 'Inconsolata', monospace;
+    --comfortaa-font: 'Comfortaa', cursive;
+}
+
+body {
+    background-color: var(--background-color);
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: url(../assets/background.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+  
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.discord-profile {
+    width: 308px;
+    height: 522px;
+    display: flex;
+    box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+}
+
+.discord-profile-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.discord-profile-main::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    background: var(--profile-border);
+    z-index: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.discord-profile-main-bg {
+    position: relative;
+    width: 100%;
+    min-height: 417px;
+    background: var(--profile-background);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-sizing: border-box;
+}
+
+.discord-profile-main-pfp {
+    clip-path: url(#pfp-mask);
+    width: 92px;
+    height: 92px;
+    position: absolute;
+    top: 52px;
+    left: 12px;
+    margin-top: 4px;
+    margin-left: 10px;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.discord-profile-main-pfp foreignObject {
+    border-radius: 100%;
+    background-image: url(https://cdn.discordapp.com/avatars/530651291417051138/e7812cc46ca8352c19e4d98f83f6a18b.webp?size=80);
+}
+
+.discord-profile-main-banner {
+    height: 105px;
+    width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-image: url(../assets/discord/tekki_banner.gif);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
