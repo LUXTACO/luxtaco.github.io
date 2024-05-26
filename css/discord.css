@@ -38,6 +38,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+    animation: fadeIn 0.6s ease;
 }
   
 body::before {
@@ -78,6 +79,8 @@ body > * {
     box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center;
+    animation: popIn 300ms ease-in, rubberBand 700ms ease-in-out;
+    animation-delay: 0s, 300ms;
 }
 
 .discord-profile-main {

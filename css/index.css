@@ -23,6 +23,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+    animation: fadeIn 0.6s ease;
 }
   
 body::before {
