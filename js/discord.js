@@ -1,3 +1,23 @@
+class CurrentSong {
+    
+    constructor (song_url, playlist_url) {
+        this.song_url = song_url
+        this.playlist_url = playlist_url
+    }
+
+}
+
+function parse_minutes(seconds) {
+    var int_minutes = Math.floor(seconds / 60);
+    var int_seconds = Math.round(seconds % 60);
+
+    if (int_seconds < 10) {
+        int_seconds = "0" + int_seconds;
+    }
+
+    return `${int_minutes}:${int_seconds}`;
+}
+
 function title_render() {
     const title = 'TAKKESHI.DISCORD';
     let index = 0;
@@ -55,8 +75,64 @@ function resize_background() {
     };
 }
 
+function get_random_song() {
+    const playlist_id_list = [
+        'PLbALFw6Imtbgaux6YbG7dP0mDf96JHOQ1&si=xvkQv_nN2LMlmGDQ',
+        'PLbALFw6ImtbhUfqAyBYBiCtxxR3OhaDmZ&si=WMNa2Ca6McVDwD7j',
+        'PLbALFw6Imtbiq2NVXayE_ZsLVddXLGrAf'
+    ]
+
+    const piped_api = 'https://pipedapi.kavin.rocks/playlists/{playlist_id}';
+
+    const random_playlist_id = playlist_id_list[Math.floor(Math.random() * playlist_id_list.length)];
+    const random_api = piped_api.replace('{playlist_id}', random_playlist_id);
+    
+    fetch(random_api)
+        .then(response => response.json())
+        .then(data => {
+            const random_song = data.relatedStreams[Math.floor(Math.random() * data.relatedStreams.length)];
+            const song_title = random_song.title;
+            const song_artist = random_song.uploaderName;
+            const song_url = random_song.url.replace("/watch?v=", "");
+            const song_duration = random_song.duration;
+            const song_cover = random_song.thumbnail;
+
+            let song_cover_element = document.getElementById("song-cover");
+            let song_name_element = document.getElementById("song-name")
+            let song_artist_element = document.getElementById("song-artist")
+            let song_duration_element = document.getElementById("song-duration")
+            let song_data_holder = document.getElementById("song-data")
+            song_cover_element.src = song_cover;
+            song_name_element.innerHTML = song_title;
+            song_artist_element.innerHTML = song_artist;
+            song_duration_element.innerHTML = `Song duration: ${parse_minutes(song_duration)}`;
+
+            song_data_holder.url = `https://music.youtube.com/watch?v=${song_url}`;
+            song_data_holder.playlist = `https://music.youtube.com/playlist?list=${random_playlist_id}`;
+            song_data_holder.duration = song_duration * 1000;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            reject(error);
+        });
+}
+
+function open_song_url() {
+
+    let current_song_data = document.getElementById("song-data")
+
+    window.open(current_song_data.url, '_blank');
+}
+
+function open_playlist_url() {
+    let current_song_data = document.getElementById("song-data")
+
+    window.open(current_song_data.playlist, '_blank');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     title_render()
-    resizeBackground();
-    window.addEventListener('resize', resizeBackground);
+    resize_background();
+    get_random_song();
+    window.addEventListener('resize', resize_background);
 });
