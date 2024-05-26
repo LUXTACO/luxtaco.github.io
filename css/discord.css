@@ -17,8 +17,8 @@
     --background-color: #0c0c0c;
     --main-color: #fcde9b;
 
-    --profile-border: linear-gradient(rgb(137, 110, 61), rgb(255, 220, 138));
-    --profile-background: rgba(0, 0, 0, 0.64);
+    --profile-border: linear-gradient(#896e3d, #ffdc8a);
+    --profile-background: rgba(0, 0, 0, 0.466);
 
     --discord-font: 'Whitney', sans-serif;
     --discord-light-font: 'Whitney Light', sans-serif;
@@ -55,6 +55,10 @@ body::before {
     z-index: -1;
 }
 
+body > * {
+    text-rendering: optimizeLegibility;
+}
+
 .main-content {
     width: 100%;
     height: 100%;
@@ -63,11 +67,12 @@ body::before {
     justify-content: center;
     padding: 0;
     align-items: center;
+    overflow-y: auto;
     box-sizing: border-box;
 }
 
 .discord-profile {
-    width: 308px;
+    width: 328px;
     height: 522px;
     display: flex;
     box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.2);
@@ -118,14 +123,15 @@ body::before {
     top: 52px;
     left: 12px;
     margin-top: 4px;
-    margin-left: 10px;
+    margin-left: 20px;
     border-radius: 100%;
     z-index: 1;
 }
 
 .discord-profile-main-pfp foreignObject#pfp {
     border-radius: 100%;
-    background-image: url(https://cdn.discordapp.com/avatars/530651291417051138/e7812cc46ca8352c19e4d98f83f6a18b.webp?size=80);
+    background-image: url(../assets/discord/taco.gif);
+    background-size: cover;
 }
 
 .discord-profile-main-banner {
@@ -178,8 +184,145 @@ body::before {
 
 .dot-spacer {
     margin-left: 5px;
+    margin-right: 5px;
     width: 4px;
     height: 4px;
     border-radius: 100%;
     background-color: white;
+}
+
+.user-badges {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgb(100, 100, 100, 0.4);
+    width: auto;
+    height: 26px;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 1px;
+}
+
+.user-badges img {
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+    position: relative;
+}
+
+#nitro-badge:hover::after {
+    content: "I dont rlly have nitro 💀";
+    position: absolute;
+    top: 26px;
+    text-align: center;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 10px;
+    border: 1px solid rgba(100, 100, 100, 0.4);
+    border-radius: 5px;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+#developer-badge:hover::after {
+    content: "The best that has ever lived 😎";
+    position: absolute;
+    top: 26px;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 10px;
+    border: 1px solid rgba(100, 100, 100, 0.4);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+#alias-badge:hover::after {
+    content: "Original alias: Takkeshi#1100";
+    position: absolute;
+    top: 26px;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 10px;
+    border: 1px solid rgba(100, 100, 100, 0.4);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.discord-activity {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.555);
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.discord-activity-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.activity-data {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin-left: 8px;
+    padding: 0;
+}
+
+.activity-data h1 {
+    font-family: var(--discord-font);
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.activity-data h2 {
+    font-family: var(--discord-light-font);
+    font-size: 12px;
+    margin: 0;
+    margin-left: 2px;
+    padding: 0;
+}
+
+.discord-activity-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(90, 67, 20);
+    border-radius: 5px;
+    padding: 16px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 0;
+    height: 32px;
+    font-size: 14px;
+    font-family: var(--discord-font);
+    color: white;
+    width: 100%;
+    margin-top: 8px;
+    transition: filter 0.2s;
+}
+
+.discord-activity-button:hover {
+    filter: brightness(0.9);
 }
