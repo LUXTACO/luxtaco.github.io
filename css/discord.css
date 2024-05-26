@@ -3,6 +3,16 @@
     src: url(../assets/fonts/Levitation-7BnPB.ttf);
 }
 
+@font-face {
+    font-family: 'Whitney';
+    src: url(../assets/fonts/whitneybook.otf);
+}
+
+@font-face {
+    font-family: 'Whitney Light';
+    src: url(../assets/fonts/whitneylight.otf);
+}
+
 :root {
     --background-color: #0c0c0c;
     --main-color: #fcde9b;
@@ -10,6 +20,8 @@
     --profile-border: linear-gradient(rgb(137, 110, 61), rgb(255, 220, 138));
     --profile-background: rgba(0, 0, 0, 0.64);
 
+    --discord-font: 'Whitney', sans-serif;
+    --discord-light-font: 'Whitney Light', sans-serif;
     --levitation-font: 'Levitation', sans-serif;
     --inconsola-font: 'Inconsolata', monospace;
     --comfortaa-font: 'Comfortaa', cursive;
@@ -111,7 +123,7 @@ body::before {
     z-index: 1;
 }
 
-.discord-profile-main-pfp foreignObject {
+.discord-profile-main-pfp foreignObject#pfp {
     border-radius: 100%;
     background-image: url(https://cdn.discordapp.com/avatars/530651291417051138/e7812cc46ca8352c19e4d98f83f6a18b.webp?size=80);
 }
@@ -125,4 +137,49 @@ body::before {
     background-size: cover;
     background-position: center;
     z-index: 0;
+}
+
+.discord-profile-main-bg-inner {
+    padding: 16px;
+    padding-top: 0;
+    padding-bottom: 8px;
+    width: 100%;
+    height: calc(100% - 40px);
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+.discord-profile-user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    margin-bottom: 8px;
+    padding: 0;
+}
+
+.visible-username {
+    font-family: var(--discord-font);
+    height: 30px;
+    width: 100%;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.subtitle-tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: var(--discord-light-font);
+    margin-left: 2px;
+    padding: 0;
+}
+
+.dot-spacer {
+    margin-left: 5px;
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    background-color: white;
 }

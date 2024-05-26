@@ -22,11 +22,27 @@
                     <circle id="pfp-mask" fill="#3c311d" cx="58" cy="97" r="46"></circle>
                 </svg>
                 <svg class="discord-profile-main-pfp" viewBox="0 0 92 92" width="92" height="92">
-                    <foreignObject x="0" y="0" width="80" height="80" mask="url(#svg-mask-avatar-status-round-80)"></foreignObject>
+                    <foreignObject id="pfp" x="0" y="0" width="80" height="80"></foreignObject>
                     <circle fill="#3c311d" r="14" cx="68" cy="68" style="opacity: 1;"></circle>
-                    <rect width="16" height="16" x="60" y="60" fill="#f0b232" mask="url(#svg-mask-status-idle)"></rect>
+                    <foreignObject id="idle-moon" width="16" height="16" x="60" y="60" fill="white">
+                        <body xmlns="http://www.w3.org/1999/xhtml">
+                            <img src="./assets/discord/idle_moon.png" width="100%" height="100%"/>
+                        </body>
+                    </foreignObject>
                 </svg>
-                <div class="discord-profile-main-bg"></div>
+                <div class="discord-profile-main-bg">
+                    <div class="discord-profile-main-bg-inner">
+                        <div class="discord-profile-user-container">
+                            <h1 class="visible-username">Takkeshi💞</h1>
+                            <div class="subtitle-tags">
+                                <div class="actual-username">
+                                    <span class="username">.takkeshi</span>
+                                </div>
+                                <div class="dot-spacer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
            </div> 
         </div>
     </div>
