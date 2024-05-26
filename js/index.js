@@ -149,5 +149,5 @@ document.addEventListener('DOMContentLoaded', () => {
     quote_render()
     title_render()
     resize_background();
-    window.addEventListener('resize', resizeBackground);
+    window.addEventListener('resize', resize_background);
 });
