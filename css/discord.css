@@ -290,6 +290,7 @@ body > * {
     align-items: start;
     justify-content: center;
     margin-left: 8px;
+    width: 100%;
     padding: 0;
 }
 
@@ -306,6 +307,42 @@ body > * {
     margin: 0;
     margin-left: 2px;
     padding: 0;
+}
+
+.timeline-container {
+    width: 100%;
+}
+
+#song-timeline {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 5px;
+    position: relative;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#song-progress {
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+}
+
+.song-time {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-family: var(--discord-light-font);
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .discord-activity-button {
