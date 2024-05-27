@@ -1,13 +1,5 @@
+let timerInterval;
 let song_duration_element;
-
-class CurrentSong {
-    
-    constructor (song_url, playlist_url) {
-        this.song_url = song_url
-        this.playlist_url = playlist_url
-    }
-
-}
 
 function parse_minutes(seconds) {
     var int_minutes = Math.floor(seconds / 60);
@@ -102,8 +94,8 @@ function get_random_song() {
             let song_cover_element = document.getElementById("song-cover");
             let song_name_element = document.getElementById("song-name")
             let song_artist_element = document.getElementById("song-artist")
-            let song_duration_element = document.getElementById("song-duration")
             let song_data_holder = document.getElementById("song-data")
+            song_duration_element = document.getElementById("song-duration")
             song_cover_element.src = song_cover;
             song_name_element.innerHTML = song_title;
             song_artist_element.innerHTML = song_artist;
@@ -120,6 +112,28 @@ function get_random_song() {
             reject(error);
         });
 }
+
+function startTimer(duration) {
+    clearInterval(timerInterval);
+  
+    let timer = duration;
+    let minutes, seconds;
+  
+    timerInterval = setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+  
+      minutes = minutes < 10 ? minutes.toString() : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+      song_duration_element.textContent = `Time left: ${minutes}:${seconds}`;
+  
+      if (--timer < 0) {
+        clearInterval(timerInterval);
+        get_random_song();
+      }
+    }, 1000);
+  }
 
 function open_song_url() {
 
