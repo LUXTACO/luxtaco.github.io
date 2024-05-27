@@ -402,3 +402,20 @@ body > * {
     outline: none;
     filter: brightness(0.9);
 }
+
+#return-arrow {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 0 10px black;
+    transition: all 0.3s ease;
+}
+
+#return-arrow:hover {
+    color: var(--main-color);
+    scale: 1.1;
+    cursor: pointer;
+}

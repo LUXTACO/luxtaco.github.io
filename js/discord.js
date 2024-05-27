@@ -155,42 +155,45 @@ function open_playlist_url() {
 
 function startTimer(duration) {
     clearInterval(timerInterval);
-  
+
     let timer = duration;
     let minutes, seconds;
     const progressElement = document.getElementById("song-progress");
     const timelineWidth = document.getElementById("song-timeline").offsetWidth;
     const currentTimeElement = document.getElementById("current-time");
     const totalDurationElement = document.getElementById("total-duration");
-  
-    // Set the total duration
+
     const totalMinutes = Math.floor(duration / 60);
     const totalSeconds = Math.round(duration % 60);
     totalDurationElement.textContent = `${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
-  
+
     timerInterval = setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-  
-      minutes = minutes < 10 ? minutes.toString() : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-  
-      song_duration_element.textContent = `Time left: ${minutes}:${seconds}`;
-  
-      // Update the current time
-      const currentMinutes = Math.floor((duration - timer) / 60);
-      const currentSeconds = Math.round((duration - timer) % 60);
-      currentTimeElement.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
-  
-      const progress = (duration - timer) / duration;
-      progressElement.style.width = progress * timelineWidth + "px";
-  
-      if (--timer < 0) {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? minutes.toString() : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        song_duration_element.textContent = `Time left: ${minutes}:${seconds}`;
+
+        // Update the current time
+        const currentMinutes = Math.floor((duration - timer) / 60);
+        const currentSeconds = Math.round((duration - timer) % 60);
+        currentTimeElement.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+
+        const progress = (duration - timer) / duration;
+        progressElement.style.width = progress * timelineWidth + "px";
+
+        if (--timer < 0) {
         clearInterval(timerInterval);
         get_random_song();
-      }
+        }
     }, 1000);
-  }
+}
+
+function return_to_index() {
+    window.location.href = "./index.html"
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     title_render();
