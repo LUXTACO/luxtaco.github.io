@@ -148,8 +148,6 @@ function open_playlist_url() {
     window.open(current_song_data.playlist, '_blank');
 }
 
-let timerInterval;
-
 function startTimer(duration) {
     clearInterval(timerInterval);
   
