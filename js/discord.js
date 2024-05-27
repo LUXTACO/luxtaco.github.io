@@ -79,8 +79,8 @@ function resize_background() {
 
 function get_random_song() {
     const playlist_id_list = [
-        'PLbALFw6Imtbgaux6YbG7dP0mDf96JHOQ1&si=xvkQv_nN2LMlmGDQ',
-        'PLbALFw6ImtbhUfqAyBYBiCtxxR3OhaDmZ&si=WMNa2Ca6McVDwD7j',
+        'PLbALFw6Imtbgaux6YbG7dP0mDf96JHOQ1',
+        'PLbALFw6ImtbhUfqAyBYBiCtxxR3OhaDmZ',
         'PLbALFw6Imtbiq2NVXayE_ZsLVddXLGrAf'
     ]
 
@@ -107,7 +107,7 @@ function get_random_song() {
             song_cover_element.src = song_cover;
             song_name_element.innerHTML = song_title;
             song_artist_element.innerHTML = song_artist;
-            song_duration_element.innerHTML = `${parse_minutes(song_duration)} left`;
+            song_duration_element.innerHTML = `Time left: ${parse_minutes(song_duration)}`;
 
             song_data_holder.url = `https://music.youtube.com/watch?v=${song_url}`;
             song_data_holder.playlist = `https://music.youtube.com/playlist?list=${random_playlist_id}`;
@@ -158,7 +158,7 @@ function startTimer(duration) {
       minutes = minutes < 10 ? minutes.toString() : minutes;
       seconds = seconds < 10 ? "0" + seconds : seconds;
   
-      song_duration_element.textContent = `Song duration: ${minutes}:${seconds}`;
+      song_duration_element.textContent = `Time left: ${minutes}:${seconds}`;
   
       // Update the current time
       const currentMinutes = Math.floor((duration - timer) / 60);

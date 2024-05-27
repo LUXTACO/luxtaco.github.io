@@ -265,54 +265,60 @@ body > * {
     background-color: rgba(0, 0, 0, 0.555);
     border-radius: 10px;
     padding: 8px;
-  }
-  
-  .discord-activity-body {
+}
+
+.discord-activity-body {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
     padding: 0;
     margin: 0;
-  }
-  
-  .activity-cover {
+}
+
+.activity-cover {
     width: 60px;
     height: 60px;
     object-fit: cover;
     object-position: center;
     border-radius: 5px;
-  }
-  
-  .activity-data {
+}
+
+.activity-data {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     margin-left: 8px;
+    width: 100%;
     padding: 0;
-  }
-  
-  .activity-data h1 {
+}
+
+.activity-data h1 {
     font-family: var(--discord-font);
     font-size: 14px;
     margin: 0;
     padding: 0;
-  }
-  
-  .activity-data h2 {
+}
+
+.activity-data h2 {
     font-family: var(--discord-light-font);
     font-size: 12px;
     margin: 0;
     margin-left: 2px;
     padding: 0;
-  }
-  
-  #song-timeline {
+}
+
+.timeline-container {
+    width: calc(100% - 2px);
+    margin-left: 2px;
+}
+
+#song-timeline {
     width: 100%;
     height: 4px;
     background-color: rgba(0, 0, 0, 0.5);
-    margin-top: 15px;
+    margin-top: 5px;
     position: relative;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -320,8 +326,8 @@ body > * {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-  
-  #song-progress {
+
+#song-progress {
     width: 0;
     height: 100%;
     background-color: #fff;
@@ -329,18 +335,18 @@ body > * {
     top: 0;
     left: 0;
     border-radius: 5px;
-  }
+}
 
-  .song-time {
+.song-time {
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
     font-family: var(--discord-light-font);
     font-size: 12px;
     font-weight: bold;
-  }
-  
-  .discord-activity-button {
+}
+
+.discord-activity-button {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -358,11 +364,11 @@ body > * {
     width: 100%;
     margin-top: 8px;
     transition: filter 0.2s;
-  }
-  
-  .discord-activity-button:hover {
+}
+
+.discord-activity-button:hover {
     filter: brightness(0.9);
-  }
+}
 
 .discord-connections {
     display: flex;
