@@ -1,3 +1,5 @@
+let song_duration_element;
+
 class CurrentSong {
     
     constructor (song_url, playlist_url) {
@@ -15,7 +17,7 @@ function parse_minutes(seconds) {
         int_seconds = "0" + int_seconds;
     }
 
-    return `${int_minutes}:${int_seconds}`;
+    return int_minutes + ":" + int_seconds;
 }
 
 function title_render() {
@@ -105,11 +107,13 @@ function get_random_song() {
             song_cover_element.src = song_cover;
             song_name_element.innerHTML = song_title;
             song_artist_element.innerHTML = song_artist;
-            song_duration_element.innerHTML = `Song duration: ${parse_minutes(song_duration)}`;
+            song_duration_element.innerHTML = `${parse_minutes(song_duration)} left`;
 
             song_data_holder.url = `https://music.youtube.com/watch?v=${song_url}`;
             song_data_holder.playlist = `https://music.youtube.com/playlist?list=${random_playlist_id}`;
-            song_data_holder.duration = song_duration * 1000;
+            song_duration_element = document.getElementById("song-duration");
+            song_data_holder.duration = song_duration;
+            startTimer(song_duration);
         })
         .catch(error => {
             console.error('Error:', error);
@@ -130,9 +134,51 @@ function open_playlist_url() {
     window.open(current_song_data.playlist, '_blank');
 }
 
+let timerInterval;
+
+function startTimer(duration) {
+    clearInterval(timerInterval);
+  
+    let timer = duration;
+    let minutes, seconds;
+    const progressElement = document.getElementById("song-progress");
+    const timelineWidth = document.getElementById("song-timeline").offsetWidth;
+    const currentTimeElement = document.getElementById("current-time");
+    const totalDurationElement = document.getElementById("total-duration");
+  
+    // Set the total duration
+    const totalMinutes = Math.floor(duration / 60);
+    const totalSeconds = Math.round(duration % 60);
+    totalDurationElement.textContent = `${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
+  
+    timerInterval = setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+  
+      minutes = minutes < 10 ? minutes.toString() : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+      song_duration_element.textContent = `Song duration: ${minutes}:${seconds}`;
+  
+      // Update the current time
+      const currentMinutes = Math.floor((duration - timer) / 60);
+      const currentSeconds = Math.round((duration - timer) % 60);
+      currentTimeElement.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+  
+      const progress = (duration - timer) / duration;
+      progressElement.style.width = progress * timelineWidth + "px";
+  
+      if (--timer < 0) {
+        clearInterval(timerInterval);
+        get_random_song();
+      }
+    }, 1000);
+  }
+
 document.addEventListener('DOMContentLoaded', () => {
-    title_render()
+    title_render();
     resize_background();
+    song_duration_element = document.getElementById("song-duration");
     get_random_song();
     window.addEventListener('resize', resize_background);
 });
