@@ -1,11 +1,5 @@
-class CurrentSong {
-    
-    constructor (song_url, playlist_url) {
-        this.song_url = song_url
-        this.playlist_url = playlist_url
-    }
-
-}
+let timerInterval;
+let song_duration_element;
 
 function parse_minutes(seconds) {
     var int_minutes = Math.floor(seconds / 60);
@@ -100,22 +94,45 @@ function get_random_song() {
             let song_cover_element = document.getElementById("song-cover");
             let song_name_element = document.getElementById("song-name")
             let song_artist_element = document.getElementById("song-artist")
-            let song_duration_element = document.getElementById("song-duration")
             let song_data_holder = document.getElementById("song-data")
+            song_duration_element = document.getElementById("song-duration")
             song_cover_element.src = song_cover;
             song_name_element.innerHTML = song_title;
             song_artist_element.innerHTML = song_artist;
-            song_duration_element.innerHTML = `Song duration: ${parse_minutes(song_duration)}`;
+            song_duration_element.innerHTML = `Time left: ${parse_minutes(song_duration)}`;
 
             song_data_holder.url = `https://music.youtube.com/watch?v=${song_url}`;
             song_data_holder.playlist = `https://music.youtube.com/playlist?list=${random_playlist_id}`;
-            song_data_holder.duration = song_duration * 1000;
+            song_data_holder.duration = song_duration;
+            startTimer(song_duration);
         })
         .catch(error => {
             console.error('Error:', error);
             reject(error);
         });
 }
+
+function startTimer(duration) {
+    clearInterval(timerInterval);
+  
+    let timer = duration;
+    let minutes, seconds;
+  
+    timerInterval = setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+  
+      minutes = minutes < 10 ? minutes.toString() : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+      song_duration_element.textContent = `Time left: ${minutes}:${seconds}`;
+  
+      if (--timer < 0) {
+        clearInterval(timerInterval);
+        get_random_song();
+      }
+    }, 1000);
+  }
 
 function open_song_url() {
 
