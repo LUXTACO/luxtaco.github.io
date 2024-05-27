@@ -369,11 +369,36 @@ body > * {
     filter: brightness(0.9);
 }
 
-.discord-connections {
+.discord-message {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
     padding: 0;
     margin-top: 8px;
+}
+
+.discord-message form {
+    width: 100%;
+    height: 100%;
+}
+
+.discord-message input {
+    width: 100%;
+    height: 32px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(100, 100, 100, 0.4);
+    border-radius: 5px;
+    padding: 8px;
+    font-family: var(--discord-font);
+    color: white;
+    font-size: 14px;
+    margin-top: 8px;
+    height: 44px;
+    transition: all 0.2s ease-in;
+}
+
+.discord-message input:focus {
+    outline: none;
+    filter: brightness(0.9);
 }

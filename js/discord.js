@@ -97,6 +97,11 @@ function get_random_song() {
             let song_data_holder = document.getElementById("song-data")
             song_duration_element = document.getElementById("song-duration")
             song_cover_element.src = song_cover;
+
+            if (song_title.length > 30) {
+                song_title = song_title.substring(0, 27) + '...';
+            }
+            
             song_name_element.innerHTML = song_title;
             song_artist_element.innerHTML = song_artist;
             song_duration_element.innerHTML = `Time left: ${parse_minutes(song_duration)}`;
