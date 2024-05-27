@@ -1,32 +1,41 @@
 <head>
     <script src="js/discord.js"></script>
-    <link rel="stylesheet" href="css/discord.css"/>
-    <link rel="stylesheet" href="css/animations.css"/>
+    <link rel="stylesheet" href="css/discord.css" />
+    <link rel="stylesheet" href="css/animations.css" />
     <link rel="icon" href="./assets/taco-image.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Takkeshi, also known as LUXTACO, is a 17-year-old full stack developer specializing in back-end development and computer vision projects. Explore his expertise in browser automation, game bots, API based bots, and backend servers.">
-    <meta name="keywords" content="Full Stack Developer, Back-End Development, Computer Vision Projects, Browser Automation, Game Bots, API Based Bots, Backend Servers, Python Developer, Node.js Developer, MySQL Database, C# Programming, C Programming, SteamGen Project, Osussist Project, DBFarmer Project, Automation Expert, Discord Bots, Remote Control Bots, Cloudflare Bypass, Auto Captcha Completion, Intelligent Bot Development, Takkeshi Developer, LUXTACO Projects, Innovative Solutions, Tech Enthusiast, GitHub Portfolio, Professional Developer, Contact Takkeshi, Programming Skills, Developer for Hire">
+    <meta name="description"
+        content="Takkeshi, also known as LUXTACO, is a 17-year-old full stack developer specializing in back-end development and computer vision projects. Explore his expertise in browser automation, game bots, API based bots, and backend servers.">
+    <meta name="keywords"
+        content="Full Stack Developer, Back-End Development, Computer Vision Projects, Browser Automation, Game Bots, API Based Bots, Backend Servers, Python Developer, Node.js Developer, MySQL Database, C# Programming, C Programming, SteamGen Project, Osussist Project, DBFarmer Project, Automation Expert, Discord Bots, Remote Control Bots, Cloudflare Bypass, Auto Captcha Completion, Intelligent Bot Development, Takkeshi Developer, LUXTACO Projects, Innovative Solutions, Tech Enthusiast, GitHub Portfolio, Professional Developer, Contact Takkeshi, Programming Skills, Developer for Hire">
     <meta name="author" content="Takkeshi / LUXTACO">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Inconsolata:wght@200..900&family=Montserrat:wght@400;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Inconsolata:wght@200..900&family=Montserrat:wght@400;800;900&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body> 
+
+<body>
     <div class="main-content">
         <div class="discord-profile">
-           <div class="discord-profile-main">
-                <svg class="discord-profile-main-banner" viewBox="0 0 300 105" style="min-width: 300px; min-height: 105px;">
+            <div class="discord-profile-main">
+                <svg class="discord-profile-main-banner" viewBox="0 0 300 105"
+                    style="min-width: 300px; min-height: 105px;">
                     <circle id="pfp-mask" fill="#57472a" cx="58" cy="97" r="46"></circle>
                 </svg>
                 <svg class="discord-profile-main-pfp" viewBox="0 0 92 92" width="92" height="92">
                     <foreignObject id="pfp" x="0" y="0" width="80" height="80"></foreignObject>
                     <circle fill="#5a4a2b" r="14" cx="68" cy="68" style="opacity: 1;"></circle>
                     <foreignObject id="idle-moon" width="16" height="16" x="60" y="60" fill="white">
+
                         <body xmlns="http://www.w3.org/1999/xhtml">
-                            <img src="./assets/discord/idle_moon.png" width="100%" height="100%"/>
+                            <img src="./assets/discord/idle_moon.png" width="100%" height="100%" />
                         </body>
                     </foreignObject>
                 </svg>
@@ -68,21 +77,23 @@
                             </div>
                             <div id="song-timeline">
                                 <div id="song-progress"></div>
-                              </div>
-                              <div class="song-time">
+                            </div>
+                            <div class="song-time">
                                 <span id="current-time">0:00</span>
                                 <span id="total-duration"></span>
-                              </div>
+                            </div>
                             <button onclick="get_random_song()" class="discord-activity-button">Change song</button>
-                            <button onclick="open_song_url()" class="discord-activity-button">Play on Youtube Music</button>
-                            <button onclick="open_playlist_url()" class="discord-activity-button">Open playlist on Youtube Music</button>
-                        </div> 
+                            <button onclick="open_song_url()" class="discord-activity-button">Play on Youtube
+                                Music</button>
+                            <button onclick="open_playlist_url()" class="discord-activity-button">Open playlist on
+                                Youtube Music</button>
+                        </div>
                         <div class="discord-connections">
 
                         </div>
                     </div>
                 </div>
-           </div> 
+            </div>
         </div>
     </div>
 </body>
