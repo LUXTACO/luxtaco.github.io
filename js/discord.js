@@ -1,5 +1,3 @@
-let song_duration_element;
-
 class CurrentSong {
     
     constructor (song_url, playlist_url) {
@@ -17,7 +15,7 @@ function parse_minutes(seconds) {
         int_seconds = "0" + int_seconds;
     }
 
-    return int_minutes + ":" + int_seconds;
+    return `${int_minutes}:${int_seconds}`;
 }
 
 function title_render() {
@@ -107,13 +105,15 @@ function get_random_song() {
             song_cover_element.src = song_cover;
             song_name_element.innerHTML = song_title;
             song_artist_element.innerHTML = song_artist;
+<<<<<<< HEAD
             song_duration_element.innerHTML = `Time left: ${parse_minutes(song_duration)}`;
+=======
+            song_duration_element.innerHTML = `Song duration: ${parse_minutes(song_duration)}`;
+>>>>>>> parent of f9408e2 (Refactor CSS and add song progress bar)
 
             song_data_holder.url = `https://music.youtube.com/watch?v=${song_url}`;
             song_data_holder.playlist = `https://music.youtube.com/playlist?list=${random_playlist_id}`;
-            song_duration_element = document.getElementById("song-duration");
-            song_data_holder.duration = song_duration;
-            startTimer(song_duration);
+            song_data_holder.duration = song_duration * 1000;
         })
         .catch(error => {
             console.error('Error:', error);
@@ -134,6 +134,7 @@ function open_playlist_url() {
     window.open(current_song_data.playlist, '_blank');
 }
 
+<<<<<<< HEAD
 let timerInterval;
 
 function startTimer(duration) {
@@ -175,10 +176,11 @@ function startTimer(duration) {
     }, 1000);
   }
 
+=======
+>>>>>>> parent of f9408e2 (Refactor CSS and add song progress bar)
 document.addEventListener('DOMContentLoaded', () => {
-    title_render();
+    title_render()
     resize_background();
-    song_duration_element = document.getElementById("song-duration");
     get_random_song();
     window.addEventListener('resize', resize_background);
 });

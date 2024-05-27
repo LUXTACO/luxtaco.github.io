@@ -307,6 +307,7 @@ body > * {
     margin: 0;
     margin-left: 2px;
     padding: 0;
+<<<<<<< HEAD
 }
 
 .timeline-container {
@@ -346,6 +347,10 @@ body > * {
     font-weight: bold;
 }
 
+=======
+}
+
+>>>>>>> parent of f9408e2 (Refactor CSS and add song progress bar)
 .discord-activity-button {
     display: flex;
     flex-direction: row;
