@@ -89,7 +89,7 @@ function get_random_song() {
             const song_artist = random_song.uploaderName;
             const song_url = random_song.url.replace("/watch?v=", "");
             const song_duration = random_song.duration;
-            const song_cover = random_song.thumbnail;
+            const song_cover = `https://i.ytimg.com/vi/${song_url}/maxresdefault.jpg`;
 
             let song_cover_element = document.getElementById("song-cover");
             let song_name_element = document.getElementById("song-name")
