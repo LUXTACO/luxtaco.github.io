@@ -41,6 +41,17 @@ body::before {
     z-index: -1;
 }
 
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+}
+
 .main-content {
     width: 100%;
     height: 100%;
@@ -48,7 +59,9 @@ body::before {
     flex-direction: column;
     justify-content: center;
     padding: 0;
+    z-index: 1;
     align-items: center;
+    overflow-y: auto;
     box-sizing: border-box;
 }
 
