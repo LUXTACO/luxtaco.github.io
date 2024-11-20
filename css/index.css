@@ -6,10 +6,10 @@
 :root {
     --background-color: #0c0c0c;
     --main-color: #fcde9b;
-
     --levitation-font: 'Levitation', sans-serif;
-    --inconsola-font: 'Inconsolata', monospace;
-    --comfortaa-font: 'Comfortaa', cursive;
+
+    --profile-border: linear-gradient(#896e3d, #ffdc8a);
+    --profile-background: rgba(0, 0, 0, 0.466);
 }
 
 body {
@@ -24,21 +24,6 @@ body {
     background-position: center;
     position: relative;
     animation: fadeIn 0.6s ease;
-}
-  
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: inherit;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    object-fit: cover;
-    z-index: -1;
 }
 
 .video-background {
@@ -58,105 +43,12 @@ body::before {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0;
-    z-index: 1;
     align-items: center;
-    overflow-y: auto;
-    box-sizing: border-box;
-}
-
-.main-title {
-    font-family: var(--levitation-font);
-    font-size: 4.5rem;
-    color: white;
-    text-align: center;
-    margin: 0;
-    height: 270px;
-    letter-spacing: 10px;
-    text-shadow: 0 0 10px black;
-    transition: all 0.3s ease;
-    animation: popIn 300ms ease-in, rubberBand 700ms ease-in-out;
-    animation-delay: 0s, 300ms;
-}
-
-.main-title p {
-    margin: 0;
-    padding: 0;
-}
-
-.main-title p span {
-    color: var(--main-color);
-}
-
-.random-rotate p {
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.quote {
-    font-family: var(--levitation-font);
-    font-weight: 500;
-    font-size: 15px;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    letter-spacing: 5px;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.quote h1 {
-    margin: 0;
-    padding: 0;
-    min-height: 40px;
-    text-shadow: 0 0 10px black;
-}
-
-.socials {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.socials a {
-    text-decoration: none;
-    color: white;
-    text-shadow: 0 0 10px black;
-    margin: 10px 10px;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.socials svg {
-    width: 30px;
-    height: 30px;
-    fill: white;
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 0 10px black);
-}
-
-.socials a:hover {
-    color: var(--main-color);
-    scale: 1.1;
-}
-
-.socials svg:hover {
-    fill: var(--main-color);
 }
 
 @media screen and (max-width: 768px) {
     .main-content {
         padding: 0 10px;
         justify-content: start;
-    }
-
-    .main-title {
-        font-size: 1.7rem;
-        height: 120px;
-    }
-
-    .quote {
-        font-size: 12px;
     }
 }

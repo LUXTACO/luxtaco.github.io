@@ -1,9 +1,4 @@
 @font-face {
-    font-family: 'Levitation';
-    src: url(../assets/fonts/Levitation-7BnPB.ttf);
-}
-
-@font-face {
     font-family: 'Whitney';
     src: url(../assets/fonts/whitneybook.otf);
 }
@@ -22,9 +17,6 @@
 
     --discord-font: 'Whitney', sans-serif;
     --discord-light-font: 'Whitney Light', sans-serif;
-    --levitation-font: 'Levitation', sans-serif;
-    --inconsola-font: 'Inconsolata', monospace;
-    --comfortaa-font: 'Comfortaa', cursive;
 }
 
 body {
