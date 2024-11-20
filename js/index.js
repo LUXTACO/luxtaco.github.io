@@ -1,5 +1,6 @@
 const programmingQuotes = [
     "Debugging is the art of finding the needle.",
+    "Debugging spots the errors, the build spots the warnings",
     "My code is perfect... In its own way.",
     "Bad code, so bad, it's good. Like a bad movie.",
     "Coding is like baking a cake, but you can't eat it.",
